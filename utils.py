@@ -32,3 +32,9 @@ area_ratio = {
     "m2": 1,
     "km2": 1e6
 }
+
+def try_parse_int(value, base: int = 10):
+    try:
+        return int(value)
+    except:
+        return value

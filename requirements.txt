@@ -1,2 +1,5 @@
-Scrapy
-pymongo
+scrapy
+pandas
+numpy
+tensorflow
+sklearn

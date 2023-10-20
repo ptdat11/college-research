@@ -13,9 +13,7 @@ class BatdongsanVnSpider(CrawlSpider):
     allowed_domains = ["batdongsan.vn"]
 
     rules = [
-        Rule(
-            LinkExtractor(allow=r"/p\d+?$"),
-        ),
+        Rule(LinkExtractor(allow=r"/p\d+?$")),
         Rule(
             LinkExtractor(
                 allow=r"-r\d+$",
@@ -87,7 +85,7 @@ class BatdongsanVnSpider(CrawlSpider):
         item = loader.load_item()
         yield item
     
-    def extract_stats(self, infos_html: bs4.Tag | bs4.NavigableString | None) -> dict[str, str]:
+    def extract_stats(self, infos_html: bs4.Tag | None) -> dict[str, str]:
         info_dict = {}
         for li in infos_html.find_all("li"):
             key, value = li.get_text().split(": ")

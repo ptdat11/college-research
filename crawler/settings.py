@@ -80,9 +80,9 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 LOG_FORMAT = '\x1b[0;0;34m%(asctime)s\x1b[0;0m \x1b[0;0;36m[%(name)s]\x1b[0;0m \x1b[0;0;31m%(levelname)s\x1b[0;0m: %(message)s'
 
-MONGO_ENABLED = False
-MONGO_USERNAME = ""
-MONGO_PASSWORD = ""
-MONGO_HOST = ""
-MONGO_PORT = 0
-MONGO_DB = ""
+MONGO_ENABLED = True
+MONGO_USERNAME = "admin"
+MONGO_PASSWORD = "12345678"
+MONGO_HOST = "phatdatsite.ddns.net"
+MONGO_PORT = 3000
+MONGO_DB = "research"
