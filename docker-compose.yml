@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  tf:
+    image: tf
+    container_name: research-tf
+    # user: ${UID}
+    stdin_open: true
+    tty: true
+    # command:
+    #   - /bin/bash 
+    #   - -c 
+    #   - |
+    #     apt update -y
+    #     apt upgrade -y
+    #     apt install -y python3-tk
+    #     python3 -m pip install --upgrade pip 
+    #     pip install -r /mnt/requirements.txt
+    #     exec tail -f /dev/null 
+    volumes:
+      - .:/mnt
+      - datasets:/mnt/datasets
+      - models:/mnt/models
+    environment:
+      - DISPLAY=:0
+      - HOST_PERMS="${UID}:${GID}"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+volumes:
+  datasets:
+    external: true
+  models:
+    external: true
